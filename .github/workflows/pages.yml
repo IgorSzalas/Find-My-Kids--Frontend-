@@ -1,20 +1,20 @@
-
-name: React app deployement
+name: Webpage to GH Pages
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-  
-    branches: [ master ]
+    branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
-  build:
-
+  deploy:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Deploy react app to github pages
-      uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
