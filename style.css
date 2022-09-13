@@ -16,10 +16,14 @@ body {
 }
 
 .wrapper {
-  margin-top: -5vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logo-find-my-kid {
+  margin-top: -150px;
+  position: relative;
 }
 
 .earth {
@@ -29,19 +33,20 @@ body {
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  animation: movimiento 25s linear 0.1s infinite;
+  animation: earthmoving 25s linear 0.1s infinite;
   box-shadow: 0 0 25px RGBA(255, 255, 255, 0.1), -8px -8px 15px #000 inset,
     2px 2px 25px rgba(0, 0, 0, 0.055) inset,
     -45px -45px 25px RGBA(0, 0, 0, 0.5) inset,
     25px 25px 45px RGBA(0, 0, 0, 0.45) inset;
   margin: 6em auto;
   transform: rotateX(6deg) rotateY(6deg) rotateZ(6deg);
-  margin-top: -46vh;
+  margin-top: -420px;
   margin-left: 50%;
   margin-right: 50%;
+  position: absolute;
 }
 
-@keyframes movimiento {
+@keyframes earthmoving {
   0% {
     background-position: 0 0;
   }
@@ -59,8 +64,8 @@ body {
   border-radius: 12px;
   flex-direction: column;
   align-items: center;
-  margin-top: -5vh;
 }
+
 .static-logo {
   height: 250px;
   width: 250px;
@@ -80,36 +85,37 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 }
+
 .field-key {
   display: none;
   margin-top: 1vh;
   margin-left: 1vw;
 }
+
 .buttons {
   display: none;
   margin-left: 1px;
   margin-right: 20px;
 }
+
 button {
   margin-top: 1vh;
   margin-left: 1vw;
 }
+
 .register-form {
   margin-top: -5vh;
-}
-
-.login-button,
-.register-button {
-  margin: 10px 10px 10px;
 }
 
 .login-inputs {
   display: flex;
   flex-direction: column;
 }
+
 .login-btn {
   width: 160px;
 }
+
 .login-btn,
 .register-btn {
   height: 80px;
@@ -118,9 +124,11 @@ button {
   color: white;
   transition: all 0.33s;
 }
+
 .register-btn {
   width: 360px;
 }
+
 .login-btn:hover,
 .register-btn:hover {
   background-color: rgb(1, 1, 128);
@@ -173,7 +181,6 @@ p {
 .linkedin-icon:hover {
   margin: 10px;
   height: 75px;
-  animation: 2s;
 }
 input {
   padding: 10px 15px;

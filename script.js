@@ -34,7 +34,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 let marker = L.marker([latitude, length]).addTo(map)
 /*****************************************************************/
 
-const userActionLogin = async () => {
+const Login = async () => {
   const response = await fetch(`${link}api/auth/login/`, {
     method: "POST",
     credentials: "include",
@@ -46,13 +46,13 @@ const userActionLogin = async () => {
       "Content-Type": "application/json",
       "x-csrftoken": document.cookie.substring(10),
       Cookie: document.cookie,
-      Referer: "https://kakarow.pythonanywhere.com",
+      Referer: "https://igorszalas.github.io/Find-My-Kids--Frontend-/",
     },
   })
   username.value = ""
   password.value = ""
   const myJSON = await response.json()
-
+  console.log(response)
   if (response.status === 200) {
     console.log("success")
     loginForm.style.display = "none"
@@ -70,9 +70,9 @@ const userActionLogin = async () => {
   }
 }
 
-loginButton.addEventListener("click", userActionLogin)
+loginButton.addEventListener("click", Login)
 loginButton.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") userActionLogin()
+  if (e.key === "Enter") Login()
 })
 
 registerButton.addEventListener("click", () => {
@@ -80,7 +80,7 @@ registerButton.addEventListener("click", () => {
   registerForm.style.display = "flex"
 })
 
-const userActionRegister = async () => {
+const Register = async () => {
   const response = await fetch(`${link}api/auth/register/`, {
     method: "POST",
     body: JSON.stringify({
@@ -106,22 +106,22 @@ const userActionRegister = async () => {
     console.log(myJSONregister)
   }
 }
-registerButtonAfter.addEventListener("click", userActionRegister)
+registerButtonAfter.addEventListener("click", Register)
 
-const userActionGetList = async () => {
-  const response = await fetch(`${link}api/devices/getList/`, {
-    /*method: "GET",*/ /*-> get is default*/ credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-      "x-csrftoken": document.cookie.substring(10),
-      Cookie: document.cookie,
-    },
-  })
-  const myJSONGetList = await response.json()
-  console.log(myJSONGetList)
-}
+// const GetList = async () => {
+//   const response = await fetch(`${link}api/devices/getList/`, {
+//     /*method: "GET",*/ /*-> get is default*/ credentials: "include",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "x-csrftoken": document.cookie.substring(10),
+//       Cookie: document.cookie,
+//     },
+//   })
+//   const myJSONGetList = await response.json()
+//   console.log(myJSONGetList)
+// }
 
-loginButton.addEventListener("click", userActionGetList)
+loginButton.addEventListener("click", getDevices)
 
 const responseStatus = async (response) => {
   const jsons = await response.json()
