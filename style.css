@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(0, 23, 189, 1);
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 23, 189, 1) 0%,
+    rgba(1, 1, 59, 1) 72%
+  );
+}
+
+.wrapper {
+  margin-top: -5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.earth {
+  background: url(https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/css3/earth-2.jpg);
+  background-size: cover;
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  animation: movimiento 25s linear 0.1s infinite;
+  box-shadow: 0 0 25px RGBA(255, 255, 255, 0.1), -8px -8px 15px #000 inset,
+    2px 2px 25px rgba(0, 0, 0, 0.055) inset,
+    -45px -45px 25px RGBA(0, 0, 0, 0.5) inset,
+    25px 25px 45px RGBA(0, 0, 0, 0.45) inset;
+  margin: 6em auto;
+  transform: rotateX(6deg) rotateY(6deg) rotateZ(6deg);
+  margin-top: -46vh;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+@keyframes movimiento {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 355px 0;
+  }
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  justify-content: center;
+  padding: 100px 50px 100px;
+  max-width: 40%;
+  border-radius: 12px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -5vh;
+}
+.static-logo {
+  height: 250px;
+  width: 250px;
+  display: flex;
+}
+
+.list-of-devices {
+  display: none;
+  flex-direction: column;
+  color: white;
+  margin-left: 1vw;
+  text-decoration: none;
+}
+
+.list-of-devices:hover {
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.field-key {
+  display: none;
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+.buttons {
+  display: none;
+  margin-left: 1px;
+  margin-right: 20px;
+}
+button {
+  margin-top: 1vh;
+  margin-left: 1vw;
+}
+.register-form {
+  margin-top: -5vh;
+}
+
+.login-button,
+.register-button {
+  margin: 10px 10px 10px;
+}
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+}
+.login-btn {
+  width: 160px;
+}
+.login-btn,
+.register-btn {
+  height: 80px;
+  border-radius: 10px;
+  background-color: rgba(1, 1, 59, 1);
+  color: white;
+  transition: all 0.33s;
+}
+.register-btn {
+  width: 360px;
+}
+.login-btn:hover,
+.register-btn:hover {
+  background-color: rgb(1, 1, 128);
+  color: grey;
+  cursor: pointer;
+}
+
+#map {
+  width: 60vw;
+  height: 80vh;
+  position: relative;
+  display: none;
+  border-radius: 12px;
+  margin-top: -500px;
+  margin-right: -20vw;
+}
+
+container-for-list-for-devices {
+  border: 10px;
+  border-style: solid;
+  border-color: white;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+}
+p {
+  color: white;
+  font-size: 15px;
+}
+.linkedin-icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.linkedin-icon {
+  margin: 10px;
+  height: 70px;
+  transition: all 0.35s;
+}
+
+.linkedin-icon:hover {
+  margin: 10px;
+  height: 75px;
+  animation: 2s;
+}
+input {
+  padding: 10px 15px;
+}
+
+button {
+  padding: 15px 20px;
+}
