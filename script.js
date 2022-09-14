@@ -46,7 +46,7 @@ const Login = async () => {
       "Content-Type": "application/json",
       "x-csrftoken": document.cookie.substring(10),
       Cookie: document.cookie,
-      Referer: "https://igorszalas.github.io/Find-My-Kids--Frontend-/",
+      Referer: "https://igorszalas.github.io",
     },
   })
   username.value = ""
