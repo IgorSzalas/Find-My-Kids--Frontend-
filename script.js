@@ -15,6 +15,7 @@ const listOfDevices = document.querySelector(".list-of-devices")
 const deleteButton = document.querySelector(".delete-button")
 const addButton = document.querySelector(".add-button")
 const refreshButton = document.querySelector(".refresh-button")
+const logoutButton = document.querySelector(".logout-button")
 const link = "https://kakarow.pythonanywhere.com/"
 //const link = "http://127.0.0.1:8000/"
 /*****************************************************************/
@@ -45,8 +46,8 @@ const Login = async () => {
     headers: {
       "Content-Type": "application/json",
       "x-csrftoken": document.cookie.substring(10),
-      Cookie: document.cookie,
-      Referer: "https://igorszalas.github.io",
+      "Cookie": document.cookie,
+      "Referer": "https://igorszalas.github.io",
     },
   })
   username.value = ""
@@ -67,6 +68,28 @@ const Login = async () => {
   } else {
     console.error(`Error. Error code is ${response.status}.`)
     console.log(myJSON)
+  }
+}
+
+const Logout = async () => {
+  const response = await fetch(`${link}api/auth/logout/`, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Accept": "application/json",
+      "x-csrftoken": document.cookie.substring(10),
+      "Cookie": document.cookie,
+    }
+  })
+  const jsons = await response.json()
+  if (response.status === 200) {
+    console.log("Logout success")
+    loginForm.style.display = "flex"
+    staticLogo.style.display = "none"
+    mapOnPage.style.display = "none"
+    fieldKey.style.display = "none"
+    buttons.style.display = "none"
+    listOfDevices.style.display = "none"
   }
 }
 
@@ -121,8 +144,6 @@ registerButtonAfter.addEventListener("click", Register)
 //   console.log(myJSONGetList)
 // }
 
-loginButton.addEventListener("click", getDevices)
-
 const responseStatus = async (response) => {
   const jsons = await response.json()
   if (response.status === 200) {
@@ -144,7 +165,7 @@ const getDevices = async () => {
       Accept: "application/json",
       "Content-Type": "application/json",
       "x-csrftoken": document.cookie.substring(10),
-      Cookie: document.cookie,
+      "Cookie": document.cookie,
     },
   })
   responseStatus(response)
@@ -165,10 +186,10 @@ const getInfo = async () => {
     method: "get",
     credentials: "include",
     headers: {
-      Accept: "application/json",
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "x-csrftoken": document.cookie.substring(10),
-      Cookie: document.cookie,
+      "Cookie": document.cookie,
     },
   })
   return responseStatus(response)
